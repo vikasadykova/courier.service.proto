@@ -1,0 +1,58 @@
+syntax = "proto3";
+// Запросы
+
+message RegisterCourierRequest {
+  string name = 1;
+  float latitude = 2;
+  float longitude = 3;
+}
+
+message GetCourierRequest {
+  string courier_id = 1;
+}
+
+message ListCouriersRequest {
+  string filter = 1;
+  string sort = 2;
+  string order = 3; 
+  int32 page = 4;
+  int32 page_size = 5;
+  repeated string status = 6;
+}
+
+message UpdateCourierRequest {
+  string courier_id = 1;
+  enum Status {
+    AVAILABLE = 0;
+    BUSY = 1;
+  }
+  Status status = 2;
+  float latitude = 3;
+  float longitude = 4;
+}
+
+message DeleteCourierRequest {
+  string courier_id = 1;
+}
+
+// Ответы
+
+message CourierResponse {
+  string courier_id = 1;
+  string name = 2;
+  string status = 3;
+  float latitude = 4;
+  float longitude = 5;
+  string updated_at = 6;  
+}
+
+message ListCouriersResponse {
+  repeated CourierResponse couriers = 1;
+  int32 total = 2;
+  int32 page = 3;
+  int32 page_size = 4;
+}
+
+message DeleteCourierResponse {
+  bool success = 1;
+}
