@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package courier.service.v1;
+
+service CourierService {
+  // Регистрация нового курьера
+  rpc RegisterCourier(RegisterCourierRequest) returns (CourierResponse);
+
+  // Получение информации о курьере
+  rpc GetCourier(GetCourierRequest) returns (CourierResponse);
+
+  // Получение списка курьеров
+  rpc ListCouriers(ListCouriersRequest) returns (ListCouriersResponse);
+
+  // Обновление статуса и локации курьера
+  rpc UpdateCourier(UpdateCourierRequest) returns (CourierResponse);
+
+  // Удаление курьера
+  rpc DeleteCourier(DeleteCourierRequest) returns (DeleteCourierResponse);
+}
