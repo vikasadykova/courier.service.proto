@@ -4,9 +4,6 @@ info:
   version: "1.0.0"
   description: "API для регистрации, обновления статуса и получения информации о курьерах"
 
-servers:
-  - url: "https://api.tbank.ru/v1/couriers"
-
 tags:
   - name: "courier"
     description: "Методы для работы с курьерами"
